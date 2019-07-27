@@ -6,7 +6,7 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-	int ab_test_val = random.randint(0, 1);
+	ab_test_val = random.randint(0, 1);
 	if ab_test_val == 0:
     	return render(request, "index.html")
     else:
