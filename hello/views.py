@@ -6,11 +6,11 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-	ab_test_val = random.randint(0, 1);
+	ab_test_val = random.randint(0, 1)
 	if ab_test_val == 0:
-    	return render(request, "index.html")
-    else:
-    	return HttpResponse("hi I am B version")
+		return render(request, "index.html")
+	else:
+		return HttpResponse("hi I am B version")
 
 
 def db(request):
