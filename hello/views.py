@@ -4,10 +4,15 @@ import random
 
 from .models import Greeting
 
+AB_KEY = "ab_value"
+
 # Create your views here.
 def index(request):
-	ab_test_val = random.randint(0, 1)
-	if ab_test_val == 0:
+	if request.session.get(AB_KEY, None) is None:
+		ab_test_val = random.randint(0, 1)
+		request.session[AB_KEY] = ab_test_val
+
+	if request.session[AB_KEY] == 0:
 		return render(request, "index.html")
 	else:
 		return HttpResponse("hi I am B version")
