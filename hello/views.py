@@ -15,7 +15,7 @@ def index(request):
 	if request.session[AB_KEY] == 0:
 		return render(request, "index.html")
 	else:
-		return HttpResponse("hi I am B version")
+		return render(request, "indexB.html")
 
 
 def db(request):
