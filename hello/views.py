@@ -12,6 +12,9 @@ def index(request):
 		ab_test_val = random.randint(0, 1)
 		request.session[AB_KEY] = ab_test_val
 
+	# TO TURN OFF A/B TESTING:
+	# replace this if/else section with a simple `return render(request, "index.html")`
+	# and then modify the index.html file in the ./templates folder to make it the way you want
 	if request.session[AB_KEY] == 0:
 		return render(request, "index.html")
 	else:
